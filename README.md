@@ -1,5 +1,5 @@
 # METODO-DE-BUSQUEDA-LINEALL
-##Análisis de complejidad
+#Análisis de complejidad#
 Para mí, la búsqueda lineal es la herramienta más honesta y directa que tenemos. Es literal como buscar algo en un cuarto desordenado: vas objeto por objeto hasta que das con lo que quieres. No necesita trucos ni que los datos estén acomodados de cierta forma; simplemente recorre la lista del inicio al final. Es la definición perfecta de 'fuerza bruta' en programación porque no asume nada del archivo, solo se pone a trabajar hasta encontrar el resultado.
 
 ##Casos de uso
