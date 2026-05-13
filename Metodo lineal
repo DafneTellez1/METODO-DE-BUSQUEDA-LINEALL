@@ -1,0 +1,45 @@
+import time
+import tkinter as tk
+from tkinter import filedialog
+
+
+def busqueda_lineal(lista_datos, numero_a_buscar):
+    for indice in range(len(lista_datos)):
+        if lista_datos[indice] == numero_a_buscar:
+            return indice 
+    return -1  
+
+def ejecutar_programa():
+    ventana = tk.Tk()
+    ventana.withdraw()
+    
+    print("Selecciona el archivo de los datos...")
+    ruta = filedialog.askopenfilename(title="Selecciona datos.txt", filetypes=[("Archivos de texto", "*.txt")])
+
+    if not ruta:
+        return
+
+    try:
+        with open(ruta, 'r') as archivo:
+            datos_revueltos = [int(linea.strip()) for linea in archivo if linea.strip()]
+
+        numero_buscado = int(input("¿Qué número quieres buscar en la lista?: "))
+
+        tiempo_inicio = time.time() * 1000
+        posicion = busqueda_lineal(datos_revueltos, numero_buscado)
+        tiempo_final = time.time() * 1000
+        
+        print("\n" + "="*50)
+        if posicion != -1:
+            print(f"¡Encontrado! El número {numero_buscado} está en la posición {posicion}.")
+        else:
+            print(f"El número {numero_buscado} no se encuentra en el archivo original.")
+            
+        print(f"Tiempo de búsqueda: {tiempo_final - tiempo_inicio:.4f} milisegundos")
+        print("="*50)
+
+    except ValueError:
+        print("Error: Ingresa un número válido.")
+
+if __name__ == "__main__":
+    ejecutar_programa()
